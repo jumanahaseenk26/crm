@@ -1,0 +1,28 @@
+class Employee(models.Model):
+    name=models.CharField(max_length=50)
+    department=models.CharField(max_length=50)
+    salary=models.PositiveIntegerField()
+    email=models.EmailField(unique=True)
+    age=models.PositiveIntegerField()
+    contact=models.CharField(null=True,max_length=50)
+
+orm query for a new object 
+model_name.objects.create(values)
+
+orm query for fetching all record
+> qs=mployee.objects.all()
+
+orm query for fetching a specific Employee detail
+> qs=Employee.objects.get(id=2)
+
+orm query for filtering Employee record
+>qs=Employee.objects.filter(department="QA")
+
+orm query for >=47000 and <=
+>qs=Employee.objects.filter(salary__gte=47000)
+
+orm query for excluding object
+>qs=Employee.objects.exclude(department="hr")
+
+orm query for update 
+> Employee.objects.filter(id=3).update(department="hr")
